@@ -1,4 +1,4 @@
-# Ex.No:3a Develop program to create a text field and a button “Navigate”. When you enter “www.gmail.com” and press navigate button it should open google page using Implicit Intents.
+# Ex.No:2a Develop program to create a text field and a button “Navigate”. When you enter “www.gmail.com” and press navigate button it should open google page using Implicit Intents.
 
 
 ## AIM:
@@ -25,61 +25,40 @@ Latest Version Android Studio
 ## PROGRAM:
 ### MainActivity.java
 ```
-package com.example.lifecycleactivity;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
+package com.example.implicit;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText editText;
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast toast=Toast.makeText(getApplicationContext(),"onCreate Called", Toast.LENGTH_LONG)
-        toast.show();
+        editText = findViewById(R.id.editTextText);
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = editText.getText().toString().trim();
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "https://" + url;
+                }
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Toast toast=Toast.makeText(getApplicationContext(), "onStart Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-    protected void onRestart() {
-        super.onRestart();
-        Toast toast=Toast.makeText(getApplicationContext(), "onRestart Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-    protected void onResume() {
-        super.onResume();
-        Toast toast=Toast.makeText(getApplicationContext(), "onResume Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-    protected void onPause() {
-        super.onPause();
-        Toast toast=Toast.makeText(getApplicationContext(), "onPause Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-    protected void onStop() {
-        super.onStop();
-        Toast toast=Toast.makeText(getApplicationContext(), "onStop Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-    protected void onDestroy() {
-        super.onDestroy();
-        Toast toast=Toast.makeText(getApplicationContext(), "onDestroy Called", Toast.LENGTH_LONG)
-        toast.show();
-    }
-
 }
-
- 
 ```
 ### activity_main_xml
-
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -91,63 +70,47 @@ public class MainActivity extends AppCompatActivity {
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="199dp"
-        android:layout_height="25dp"
-        android:autoSizeTextType="none"
-        android:fontFamily="sans-serif-black"
-        android:text="Hello Everyone"
-        android:textAlignment="center"
-        android:textColor="#1131D9"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.473" />
-
-    <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="53dp"
         android:fontFamily="sans-serif-black"
-        android:text="Welcome to Life Cycle Activity"
-        android:textAlignment="center"
-        android:textColor="#CE1313"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Implicit Intent"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintVertical_bias="0.509" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="218dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="184dp"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start your Activity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="429dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="124dp"
-        android:layout_height="80dp"
+        android:id="@+id/button"
+        android:layout_width="163dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="156dp"
+        android:text="CLICK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.132"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
-
 ## OUTPUT
-
-<img width="1873" height="1006" alt="Screenshot 2026-10-22 113618" src="https://github.com/user-attachments/assets/9d15fe22-9f85-41b3-ab0e-ee4e81e7a246" />
-
+![Uploading Screenshot 2026-10-27 104403.png…]()
+![Uploading Screenshot 2026-10-27 103637.png…]()
+![Uploading Screenshot 2026-10-27 103325.png…]()
+![Uploading Screenshot 2026-10-27 103209.png…]()
+![Uploading Screenshot 2026-10-27 102335.png…]()
 
 
 ## RESULT
