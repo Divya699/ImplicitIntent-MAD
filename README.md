@@ -106,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 ## OUTPUT
-![Uploading Screenshot 2026-10-27 104403.png…]()
-![Uploading Screenshot 2026-10-27 103637.png…]()
-![Uploading Screenshot 2026-10-27 103325.png…]()
-![Uploading Screenshot 2026-10-27 103209.png…]()
-![Uploading Screenshot 2026-10-27 102335.png…]()
+<img width="1859" height="897" alt="Screenshot 2026-10-27 102335" src="https://github.com/user-attachments/assets/2d604d49-e970-48e5-981a-38eeffe607db" />
+
+<img width="1907" height="1012" alt="Screenshot 2026-10-27 103209" src="https://github.com/user-attachments/assets/756379b1-e173-4b2b-b514-4bde1f08790c" />
+<img width="1890" height="999" alt="Screenshot 2026-10-27 104403" src="https://github.com/user-attachments/assets/4a645e53-c6c6-4de3-b6c8-668244e6a272" />
+<img width="1907" height="1013" alt="Screenshot 2026-10-27 103637" src="https://github.com/user-attachments/assets/eb705dae-e4ca-4bca-bf3e-d4b8cb0160c9" />
 
 
 ## RESULT
